@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuật Toán Đệ Quy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thuật Toán Đệ Quy (Recursion)</h1>
+        
+        <div class="section">
+            <h2>Đệ quy là gì?</h2>
+            <p>Đệ quy là một phương pháp giải quyết vấn đề trong đó một hàm tự gọi lại chính nó để giải quyết các bài toán nhỏ hơn cùng một dạng.</p>
+        </div>
+
+        <div class="section">
+            <h2>Ví dụ về Đệ quy</h2>
+            
+            <!-- Ví dụ 1: Giai thừa -->
+            <div class="example">
+                <h3>1. Tính giai thừa</h3>
+                <div class="code-section">
+                    <h4>Code mẫu:</h4>
+                    <pre><code class="javascript">function factorial(n) {
+    // Điều kiện cơ sở
+    if (n <= 1) {
+        return 1;
+    }
+    
+    // Công thức đệ quy
+    return n * factorial(n-1);
+}</code></pre>
+                </div>
+                <div class="demo-section">
+                    <button onclick="calculateFactorial()">Tính giai thừa</button>
+                    <input type="number" id="factorialInput" value="5">
+                    <p id="factorialResult"></p>
+                    <div class="section">
+                        <h3>Các bước thực hiện:</h3>
+                        <div id="factorialSteps" class="recursion-steps"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ví dụ 2: Fibonacci -->
+            <div class="example">
+                <h3>2. Dãy Fibonacci</h3>
+                <div class="code-section">
+                    <h4>Code mẫu:</h4>
+                    <pre><code class="javascript">function fibonacci(n) {
+    // Điều kiện cơ sở
+    if (n <= 1) {
+        return n;
+    }
+    
+    // Công thức đệ quy
+    return fibonacci(n-1) + fibonacci(n-2);
+}</code></pre>
+                </div>
+                <div class="demo-section">
+                    <button onclick="calculateFibonacci()">Tính Fibonacci</button>
+                    <input type="number" id="fibonacciInput" value="5">
+                    <p id="fibonacciResult"></p>
+                    <div class="section">
+                        <h3>Các bước thực hiện:</h3>
+                        <div id="fibonacciSteps" class="recursion-steps"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Các thành phần cơ bản của đệ quy</h2>
+            <div class="recursion-basics">
+                <div class="basic-component">
+                    <h3>1. Điều kiện cơ sở (Base case)</h3>
+                    <div class="component-explanation">
+                        <p>Là điều kiện dừng của đệ quy, xác định khi nào thuật toán ngừng gọi chính nó.</p>
+                        <ul>
+                            <li>Là trường hợp đơn giản nhất của bài toán</li>
+                            <li>Có thể giải quyết trực tiếp mà không cần đệ quy</li>
+                            <li>Luôn phải có ít nhất một điều kiện cơ sở để tránh đệ quy vô hạn</li>
+                        </ul>
+                        <div class="example-box">
+                            <p>Ví dụ:</p>
+                            <ul>
+                                <li>Giai thừa: n = 0 hoặc n = 1 → return 1</li>
+                                <li>Fibonacci: n = 0 → return 0; n = 1 → return 1</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="basic-component">
+                    <h3>2. Công thức đệ quy (Recursive case)</h3>
+                    <div class="component-explanation">
+                        <p>Là công thức giải quyết bài toán bằng cách chia nhỏ thành các bài toán con cùng dạng.</p>
+                        <ul>
+                            <li>Gọi lại chính hàm đó với tham số khác</li>
+                            <li>Phải tiến dần đến điều kiện cơ sở</li>
+                            <li>Kết hợp kết quả của các bài toán con để có kết quả cuối cùng</li>
+                        </ul>
+                        <div class="example-box">
+                            <p>Ví dụ:</p>
+                            <ul>
+                                <li>Giai thừa: n! = n × (n-1)!</li>
+                                <li>Fibonacci: F(n) = F(n-1) + F(n-2)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
